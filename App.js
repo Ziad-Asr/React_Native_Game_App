@@ -7,3 +7,5 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({});
+
+// There is no (inheritance of styles) in react native
