@@ -4,6 +4,7 @@ function PrimaryButton({ children }) {
   function pressHandler() {
     console.log("Pressed");
   }
+
   return (
     <View style={styles.buttonOuterContainer}>
       <Pressable
