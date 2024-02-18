@@ -2,6 +2,7 @@ import { useState } from "react";
 import { StyleSheet, ImageBackground, saveAreaView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Apploading from "expo-app-loading";
+import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
 
 import StartGameScreen from "./screens/StartGameScreen";
@@ -56,19 +57,22 @@ export default function App() {
   }
 
   return (
-    <LinearGradient
-      colors={[Colors.primary700, Colors.accent500]}
-      style={styles.rootScreen}
-    >
-      <ImageBackground
-        source={require("./assets/images/background.png")}
-        resizeMode="cover"
-        style={styles.rootScreen} // This go to the parent component that hold the image tage (in the background)
-        imageStyle={styles.backgroundImage} // This go to the (image) tag in the background
+    <>
+      <StatusBar style="light" />
+      <LinearGradient
+        colors={[Colors.primary700, Colors.accent500]}
+        style={styles.rootScreen}
       >
-        <saveAreaView style={{ flex: 1 }}>{screen}</saveAreaView>
-      </ImageBackground>
-    </LinearGradient>
+        <ImageBackground
+          source={require("./assets/images/background.png")}
+          resizeMode="cover"
+          style={styles.rootScreen} // This go to the parent component that hold the image tage (in the background)
+          imageStyle={styles.backgroundImage} // This go to the (image) tag in the background
+        >
+          <saveAreaView style={{ flex: 1 }}>{screen}</saveAreaView>
+        </ImageBackground>
+      </LinearGradient>
+    </>
   );
 }
 

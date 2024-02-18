@@ -5,8 +5,8 @@ import {
   TextInput,
   Alert,
   useWindowDimensions,
-  keyboardAvoidingView,
-  scrollView,
+  KeyboardAvoidingView,
+  ScrollView,
 } from "react-native";
 import PrimaryButton from "../components/ui/PrimaryButton";
 
@@ -46,33 +46,35 @@ function StartGameScreen({ onPickNumber }) {
   }
 
   return (
-    //   <scrollView style={styles.screen}>
-    //     <keyboardAvoidingView style={styles.screen} behaivior="position">
-    <View style={[styles.rootContainer, { marginTop: marginTopDistance }]}>
-      <Title>Guess My number</Title>
-      <Card>
-        <InstructionText>Enter a Number</InstructionText>
-        <TextInput
-          style={styles.numberInput}
-          maxLength={2}
-          keyboardType="number-pad"
-          autoCapitalize="none"
-          autoCorrect={false}
-          onChangeText={numberInputHandler}
-          value={enteredNumber}
-        />
-        <View style={styles.buttonsContainer}>
-          <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
-          </View>
-          <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
-          </View>
+    <ScrollView style={styles.screen}>
+      <KeyboardAvoidingView style={styles.screen} behaivior="position">
+        <View style={[styles.rootContainer, { marginTop: marginTopDistance }]}>
+          <Title>Guess My number</Title>
+          <Card>
+            <InstructionText>Enter a Number</InstructionText>
+            <TextInput
+              style={styles.numberInput}
+              maxLength={2}
+              keyboardType="number-pad"
+              autoCapitalize="none"
+              autoCorrect={false}
+              onChangeText={numberInputHandler}
+              value={enteredNumber}
+            />
+            <View style={styles.buttonsContainer}>
+              <View style={styles.buttonContainer}>
+                <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
+              </View>
+              <View style={styles.buttonContainer}>
+                <PrimaryButton onPress={confirmInputHandler}>
+                  Confirm
+                </PrimaryButton>
+              </View>
+            </View>
+          </Card>
         </View>
-      </Card>
-    </View>
-    //   </keyboardAvoidingView>
-    // </scrollView>
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 }
 
